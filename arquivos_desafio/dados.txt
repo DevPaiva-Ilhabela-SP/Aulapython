@@ -1,0 +1,4 @@
+Nome: João, Email: joao@gmail.com
+Nome: Maria, Email: maria@hotmail.com
+Nome: Pedro, Email: pedro@yahoo.com
+Nome: Ana, Email: ana@example.com
