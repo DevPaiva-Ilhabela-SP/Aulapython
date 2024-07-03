@@ -1,33 +1,36 @@
 # Estrutura de dicionário com nome e CEP de cada integrante
+# Importando a biblioteca necessária
+import requests
+
+# Estrutura de dicionário com nome e cep de cada integrante
 squad = {
-    'Anderson': {
-        'cep': '12200-000',
-        'cidade': 'São José dos Campos'
-    },
-    'Allyph': {
-        'cep': '11660-000',
-        'cidade': 'Caraguatatuba'
-    },
-    'Felipe': {
-        'cep': '11630-000',
-        'cidade': 'Ilhabela'
-    },
-    'Gabriel': {
-        'cep': '11600-000',
-        'cidade': 'São Sebastião'
-    },
-    'Rodrigo': {
-        'cep': '11680-000',
-        'cidade': 'Ubatuba'
-    }
+    'Anderson': '01311-200',
+    'Allyph': '04571-010',
+    'Gabriel': '12245-670',
+    'Luiz Felipe': '70070-150',
+    'Rodrigo': '11630-370'
 }
 
-# Requisição para imprimir nome e cidade de cada integrante
-for nome, info in squad.items():
-    print(f"Nome: {nome}, Cidade: {info['cidade']}")
+# Função para obter a cidade a partir do CEP
+def get_city_from_cep(cep):
+    url = f'https://viacep.com.br/ws/{cep}/json/'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return data.get('localidade')
+    else:
+        return None
 
-# Criação do arquivo requirements.txt
+# Gerar arquivo requirements.txt
 with open('requirements.txt', 'w') as file:
     file.write('requests\n')
 
+# Imprimir nome e cidade de cada integrante do squad
+for nome, cep in squad.items():
+    cidade = get_city_from_cep(cep)
+    if cidade:
+        print(f'Nome: {nome} | Cidade: {cidade}')
+    else:
+        print(f'Nome: {nome} | Cidade não encontrada para o CEP: {cep}')
 print("Arquivo requirements.txt gerado com sucesso!")
+
