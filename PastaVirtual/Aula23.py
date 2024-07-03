@@ -20,7 +20,7 @@ def obter_estado_por_cep(cep):
 
 def verificar_frete_gratis(cep):
     if not validar_cep(cep):
-        return "CEP inválido. Por favor, insira um CEP válido."
+        return "CEP inelegível para o frete grátis."
 
     estado = obter_estado_por_cep(cep)
     if estado in norte_nordeste:
