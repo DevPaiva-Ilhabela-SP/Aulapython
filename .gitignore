@@ -1,0 +1,5 @@
+PastaVirtual
+Include
+Lib\site-packages
+Scripts
+pyvenv.cfg

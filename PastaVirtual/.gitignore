@@ -1,7 +1,0 @@
-PastaVirtual
-Include
-Lib\site-packages
-Scripts
-pyvenv.cfg
-PastaVirtual/Lib/site-packages/
-PastaVirtual/Lib/site-packages/pip/
