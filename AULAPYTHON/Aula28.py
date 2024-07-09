@@ -1,6 +1,6 @@
 from faker import Faker
 import pandas as pd
-
+import json
 Faker = Faker('pt_BR')
 
 def create_persona() -> dict:
@@ -16,3 +16,4 @@ def create_persona() -> dict:
  
 persona = create_persona()
 print(persona)
+
